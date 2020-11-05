@@ -28,3 +28,13 @@ REW notes:
 JACK is configured to not touch the microphone as REW really wants it to either be sitting on ALSA or the Pulse, or else the calibration sensitivity reports wrong values all over the place.
 
 Unlike Equalizer APO, export of EQ settings is with "Export filter settings as text", or else the Jalv can't load them.
+
+Don't use Cadence PulseAudio Auto-Start at login feature as it loads some random script that doesn't work for me.
+
+Disable "PulseAudio Sound System" in XFCE Sessions and Startup.
+
+Keep "Cadence session startup" in XFCE Sessionsa nd Startup.
+
+Looks like currently PulseAudio is started with "systemctl --user enable pulseaudio.socket/.service"
+
+Don't bother messing with .config/jack.conf as it get overriden and never read from when started by Cadence.
