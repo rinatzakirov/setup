@@ -7,3 +7,7 @@ Checkout/make/make install:
 https://github.com/pyside/pyside2-tools.git
 
 Don't bother with NETGEN, it is not used.
+
+Freecad cmake call:
+
+cmake ..  -DBUILD_QT5=ON -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYSIDE2UICBINARY=/usr/local/bin/pyside2-uic -DPYSIDE2RCCBINARY=/usr/local/bin/pyside2-rcc
