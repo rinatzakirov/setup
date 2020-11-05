@@ -1,11 +1,6 @@
 MyTile: Basic Custom Tiling Manager based on mouse window dragging to edges of the screen.
+    
+room_eq: Notes and settings for the Room Equalization.
 
-  To disable XWFM4 default tiling behavior:
-  
-    Window Manager Tweaks -> Accessibility -> Automatically tile windows when moving toward the screen edge, untick.
-    
-    Window Manager -> Advanced -> Windows snapping, untick
-    
-    Window Manager -> Advanced -> Wrap workspaces when reaching the screen edge, untick
-    
+freecad: Notes about FreeCAD 0.19 installation on Ubuntu from sources.
 	
