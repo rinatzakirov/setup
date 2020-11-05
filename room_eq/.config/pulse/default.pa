@@ -1,0 +1,30 @@
+.include /etc/pulse/default.pa
+
+#load-module module-null-sink sink_name=mic_denoised_out rate=48000
+#load-module module-ladspa-sink sink_name=mic_raw_in sink_master=mic_denoised_out label=noise_suppressor_mono plugin=/home/rinat/src/noise-suppression-for-voice/build/bin/ladspa/librnnoise_ladspa.so control=50
+#load-module module-loopback source=1 sink=mic_raw_in channels=1 source_dont_move=true sink_dont_move=true
+#load-module module-remap-source source_name=denoised master=mic_denoised_out.monitor channels=1
+
+#set-default-source mic_denoised_out.monitor
+
+#load-module module-equalizer-sink
+#load-module module-dbus-protocol
+
+#unload-module module-switch-on-connect
+
+#load-module module-native-protocol-unix
+load-module module-jack-sink channels=2 connect=no
+#load-module module-jack-source channels=2 connect=no
+#load-module module-null-sink
+#load-module module-stream-restore
+#load-module module-rescue-streams
+#load-module module-always-sink
+
+#load-module module-jackdbus-detect channels=2
+#unload-module module-suspend-on-idle
+
+set-default-sink jack_out
+#set-default-source jack_in
+
+
+
