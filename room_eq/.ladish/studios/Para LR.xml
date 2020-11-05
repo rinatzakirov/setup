@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<!--
+ladish Studio configuration.
+-->
+<!-- Tue Nov  3 05:53:46 2020 -->
+<studio>
+  <jack>
+    <conf>
+      <parameter path="/engine/driver">alsa</parameter>
+      <parameter path="/engine/realtime">true</parameter>
+      <parameter path="/engine/verbose">true</parameter>
+      <parameter path="/engine/client-timeout">500</parameter>
+      <parameter path="/driver/device">hw:PCH</parameter>
+      <parameter path="/driver/capture">hw:PCH,0</parameter>
+      <parameter path="/driver/playback">hw:PCH,7</parameter>
+      <parameter path="/driver/rate">48000</parameter>
+      <parameter path="/driver/period">1024</parameter>
+      <parameter path="/driver/nperiods">2</parameter>
+      <parameter path="/driver/hwmon">false</parameter>
+      <parameter path="/driver/hwmeter">false</parameter>
+      <parameter path="/driver/duplex">true</parameter>
+      <parameter path="/driver/softmode">false</parameter>
+      <parameter path="/driver/monitor">false</parameter>
+      <parameter path="/driver/dither">n</parameter>
+      <parameter path="/driver/outchannels">8</parameter>
+      <parameter path="/driver/shorts">false</parameter>
+    </conf>
+    <clients>
+      <client name="claudia" uuid="631dfe05-a63b-4396-97df-fd8b2c60954c">
+        <ports>
+        </ports>
+      </client>
+      <client name="system" uuid="62b2c365-7651-4fbd-9764-2609195ce266">
+        <ports>
+          <port name="capture_1" uuid="1fd34c1c-8f05-412a-a09b-ac4ad266d1f3" />
+          <port name="capture_2" uuid="2706e7ac-524e-44ce-9606-34dfd7c310a9" />
+          <port name="playback_1" uuid="40e033b4-0401-45ee-baeb-54076ef2d68b" />
+          <port name="playback_2" uuid="8e969493-fe06-4cef-b3bc-7f12b02b3074" />
+          <port name="playback_3" uuid="ad1609ab-901b-434f-973c-73fc3a728154" />
+          <port name="playback_4" uuid="ed897985-273e-41fe-b22c-f18f4b8cc087" />
+          <port name="playback_5" uuid="a0a8f223-cae4-4dfe-a103-12f1b0945ab6" />
+          <port name="playback_6" uuid="a12ac760-775a-4e37-b3d4-f097a0cf269b" />
+          <port name="playback_7" uuid="f3f64477-0119-4882-b79c-24a2d3297a80" />
+          <port name="playback_8" uuid="e59f8ca3-b2d6-4afa-989f-c176aa5609fb" />
+        </ports>
+      </client>
+      <client name="para_l" uuid="7b1e914c-9436-4e4c-b01c-1a81884ee2d4">
+        <ports>
+          <port name="in" uuid="94ff5e93-c5e1-4df7-8eeb-aa9c3b6d170e" />
+          <port name="out" uuid="04040a35-249d-40cc-98f6-371b8fcab031" />
+        </ports>
+      </client>
+      <client name="para_r" uuid="af399d04-924a-488c-8b21-5905d5c00206">
+        <ports>
+          <port name="in" uuid="0ec00c4a-e362-4b29-81ad-5c80d1c6e6b0" />
+          <port name="out" uuid="15c32650-7219-43b6-8bf3-760b3c14cf81" />
+        </ports>
+      </client>
+      <client name="PulseAudio JACK Sink" uuid="0c1adf52-bb33-4e78-882b-f947c6b33d94">
+        <ports>
+          <port name="front-left" uuid="27641f3f-ff14-4b6e-a3a3-f41fe44a7090" />
+          <port name="front-right" uuid="0aafc642-ba94-417e-94e2-3c5d70e27d20" />
+        </ports>
+      </client>
+      <client name="a2j" uuid="be23a242-e2b2-11de-b795-002618af5e42">
+        <ports>
+          <port name="Midi Through (capture): Midi Through Port-0" uuid="fc28cb45-5cf3-4ed6-962e-006b04dc7616" />
+          <port name="Midi Through (playback): Midi Through Port-0" uuid="97c7f210-5e8d-4afb-be7a-6614ec52fc9b" />
+        </ports>
+      </client>
+      <client name="para_sr" uuid="19011ce6-9d82-4f33-b709-bbea9a898136">
+        <ports>
+          <port name="in" uuid="79c73f00-792a-4aa4-8574-e68256be4612" />
+          <port name="out" uuid="b47b4475-729d-4359-9ee8-a7b1d466df95" />
+        </ports>
+      </client>
+      <client name="para_sl" uuid="81e77487-b366-413d-83d4-5a84608e28a4">
+        <ports>
+          <port name="in" uuid="3aa90b4e-2179-4fda-8eb5-b24c19eec73f" />
+          <port name="out" uuid="56aada72-f2af-4f12-979a-aa92679553ad" />
+        </ports>
+      </client>
+    </clients>
+  </jack>
+  <clients>
+    <client name="Hardware Capture" uuid="47c1cd18-7b21-4389-bec4-6e0658e1d6b1" naming="app">
+      <ports>
+        <port name="capture_1" uuid="1fd34c1c-8f05-412a-a09b-ac4ad266d1f3" type="audio" direction="output" />
+        <port name="capture_2" uuid="2706e7ac-524e-44ce-9606-34dfd7c310a9" type="audio" direction="output" />
+      </ports>
+      <dict>
+        <key name="http://ladish.org/ns/canvas/x">1105.0</key>
+        <key name="http://ladish.org/ns/canvas/y">1180.0</key>
+      </dict>
+    </client>
+    <client name="Hardware Playback" uuid="b2a0bb06-28d8-4bfe-956e-eb24378f9629" naming="app">
+      <ports>
+        <port name="playback_1" uuid="40e033b4-0401-45ee-baeb-54076ef2d68b" type="audio" direction="input" />
+        <port name="playback_2" uuid="8e969493-fe06-4cef-b3bc-7f12b02b3074" type="audio" direction="input" />
+        <port name="playback_3" uuid="ad1609ab-901b-434f-973c-73fc3a728154" type="audio" direction="input" />
+        <port name="playback_4" uuid="ed897985-273e-41fe-b22c-f18f4b8cc087" type="audio" direction="input" />
+        <port name="playback_5" uuid="a0a8f223-cae4-4dfe-a103-12f1b0945ab6" type="audio" direction="input" />
+        <port name="playback_6" uuid="a12ac760-775a-4e37-b3d4-f097a0cf269b" type="audio" direction="input" />
+        <port name="playback_7" uuid="f3f64477-0119-4882-b79c-24a2d3297a80" type="audio" direction="input" />
+        <port name="playback_8" uuid="e59f8ca3-b2d6-4afa-989f-c176aa5609fb" type="audio" direction="input" />
+      </ports>
+      <dict>
+        <key name="http://ladish.org/ns/canvas/x">2014.0</key>
+        <key name="http://ladish.org/ns/canvas/y">1294.0</key>
+      </dict>
+    </client>
+    <client name="para_l" uuid="7b5a189b-eed3-4bf2-95ec-f4eed5e1d4c2" naming="app" app="85cecfad-56b9-4fef-8bc6-18f6bd22c273">
+      <ports>
+        <port name="in" uuid="94ff5e93-c5e1-4df7-8eeb-aa9c3b6d170e" type="audio" direction="input" />
+        <port name="out" uuid="04040a35-249d-40cc-98f6-371b8fcab031" type="audio" direction="output" />
+      </ports>
+      <dict>
+        <key name="http://ladish.org/ns/canvas/x">1681.0</key>
+        <key name="http://ladish.org/ns/canvas/y">1267.0</key>
+      </dict>
+    </client>
+    <client name="para_r" uuid="d248ba80-8d50-4e4a-affa-89584eca7be0" naming="app" app="b262b546-da8d-42d8-84f0-1489da5b7427">
+      <ports>
+        <port name="in" uuid="0ec00c4a-e362-4b29-81ad-5c80d1c6e6b0" type="audio" direction="input" />
+        <port name="out" uuid="15c32650-7219-43b6-8bf3-760b3c14cf81" type="audio" direction="output" />
+      </ports>
+      <dict>
+        <key name="http://ladish.org/ns/canvas/x">1680.0</key>
+        <key name="http://ladish.org/ns/canvas/y">1451.0</key>
+      </dict>
+    </client>
+    <client name="PulseAudio JACK Sink" uuid="9185485f-2f43-4b51-8795-ab2fc0051628" naming="app">
+      <ports>
+        <port name="front-left" uuid="27641f3f-ff14-4b6e-a3a3-f41fe44a7090" type="audio" direction="output" />
+        <port name="front-right" uuid="0aafc642-ba94-417e-94e2-3c5d70e27d20" type="audio" direction="output" />
+      </ports>
+      <dict>
+        <key name="http://ladish.org/ns/canvas/x">1366.0</key>
+        <key name="http://ladish.org/ns/canvas/y">1309.0</key>
+      </dict>
+    </client>
+    <client name="Midi Through" uuid="15fb8486-abeb-45fc-ae74-7e719a665e9b" naming="app">
+      <ports>
+        <port name="Midi Through Port-0" uuid="fc28cb45-5cf3-4ed6-962e-006b04dc7616" type="midi" direction="output" />
+        <port name="Midi Through Port-0" uuid="97c7f210-5e8d-4afb-be7a-6614ec52fc9b" type="midi" direction="input" />
+      </ports>
+    </client>
+    <client name="para_sr" uuid="ce350e93-7f1a-4781-8394-cb8b9381d6ec" naming="app" app="06333947-6400-4448-b739-dff8174d262b">
+      <ports>
+        <port name="in" uuid="79c73f00-792a-4aa4-8574-e68256be4612" type="audio" direction="input" />
+        <port name="out" uuid="b47b4475-729d-4359-9ee8-a7b1d466df95" type="audio" direction="output" />
+      </ports>
+      <dict>
+        <key name="http://ladish.org/ns/canvas/x">1703.0</key>
+        <key name="http://ladish.org/ns/canvas/y">1380.0</key>
+      </dict>
+    </client>
+    <client name="para_sl" uuid="6dbaf970-7ae4-474d-ad53-0b939ce30b12" naming="app" app="2e08352f-fb17-49b2-b6a7-496aab3e9103">
+      <ports>
+        <port name="in" uuid="3aa90b4e-2179-4fda-8eb5-b24c19eec73f" type="audio" direction="input" />
+        <port name="out" uuid="56aada72-f2af-4f12-979a-aa92679553ad" type="audio" direction="output" />
+      </ports>
+      <dict>
+        <key name="http://ladish.org/ns/canvas/x">1700.0</key>
+        <key name="http://ladish.org/ns/canvas/y">1330.0</key>
+      </dict>
+    </client>
+  </clients>
+  <connections>
+    <connection port1="27641f3f-ff14-4b6e-a3a3-f41fe44a7090" port2="94ff5e93-c5e1-4df7-8eeb-aa9c3b6d170e" />
+    <connection port1="0aafc642-ba94-417e-94e2-3c5d70e27d20" port2="0ec00c4a-e362-4b29-81ad-5c80d1c6e6b0" />
+    <connection port1="27641f3f-ff14-4b6e-a3a3-f41fe44a7090" port2="3aa90b4e-2179-4fda-8eb5-b24c19eec73f" />
+    <connection port1="0aafc642-ba94-417e-94e2-3c5d70e27d20" port2="79c73f00-792a-4aa4-8574-e68256be4612" />
+    <connection port1="b47b4475-729d-4359-9ee8-a7b1d466df95" port2="ed897985-273e-41fe-b22c-f18f4b8cc087" />
+    <connection port1="56aada72-f2af-4f12-979a-aa92679553ad" port2="ad1609ab-901b-434f-973c-73fc3a728154" />
+    <connection port1="04040a35-249d-40cc-98f6-371b8fcab031" port2="40e033b4-0401-45ee-baeb-54076ef2d68b" />
+    <connection port1="15c32650-7219-43b6-8bf3-760b3c14cf81" port2="8e969493-fe06-4cef-b3bc-7f12b02b3074" />
+  </connections>
+  <applications>
+    <application name="para_l" uuid="85cecfad-56b9-4fef-8bc6-18f6bd22c273" terminal="false" level="1" autorun="true">jalv -n para_l -l %2Fhome%2Frinat%2Fsrc%2Fsound%2Fjalv_preset_l http:%2F%2Flsp-plug.in%2Fplugins%2Flv2%2Fpara_equalizer_x32_mono</application>
+    <application name="para_r" uuid="b262b546-da8d-42d8-84f0-1489da5b7427" terminal="false" level="1" autorun="true">jalv -n para_r -l %2Fhome%2Frinat%2Fsrc%2Fsound%2Fjalv_preset_r http:%2F%2Flsp-plug.in%2Fplugins%2Flv2%2Fpara_equalizer_x32_mono</application>
+    <application name="para_sr" uuid="06333947-6400-4448-b739-dff8174d262b" terminal="false" level="1" autorun="true">jalv -n para_sr -l %2Fhome%2Frinat%2Fsrc%2Fsound%2Fjalv_preset_sr http:%2F%2Flsp-plug.in%2Fplugins%2Flv2%2Fpara_equalizer_x32_mono</application>
+    <application name="para_sl" uuid="2e08352f-fb17-49b2-b6a7-496aab3e9103" terminal="false" level="1" autorun="true">jalv -n para_sl -l %2Fhome%2Frinat%2Fsrc%2Fsound%2Fjalv_preset_sl http:%2F%2Flsp-plug.in%2Fplugins%2Flv2%2Fpara_equalizer_x32_mono</application>
+  </applications>
+</studio>
