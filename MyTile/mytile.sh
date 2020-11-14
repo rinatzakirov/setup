@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 while :
 do
-	python /home/rinat/src/mytile/mytile.py
+	python $(dirname "$BASH_SOURCE")/mytile.py
 	sleep 1
 done
