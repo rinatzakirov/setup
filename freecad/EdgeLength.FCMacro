@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+
+# Macro Begin: C:\Users\User\AppData\Roaming\FreeCAD\Macro\EdgeLength.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
+import FreeCAD
+import Part
+
+print("---------------")
+
+sel = []
+for o in Gui.Selection.getSelectionEx():
+	for so in o.SubObjects:
+		if so.ShapeType == "Edge":
+			if so.Curve.TypeId == "Part::GeomLine":
+				sel.append((o.Object, so.SubShapes[0]))
+				sel.append((o.Object, so.SubShapes[1]))
+			else:
+				print("Can't handle curve type: %s" % so.Curve.TypeId)
+		elif so.ShapeType == "Vertex":
+			sel.append((o.Object, so))
+		else:
+			print("Can't handle shape type: %s" % so.ShapeType)
+
+print("Len(Selection): %d" % len(sel))
+
+def objTransform(obj, subObj):
+	obj = obj.InList[0]
+	
+	transf = obj.Placement.toMatrix()
+	while len(obj.InList) != 0:
+		obj = obj.InList[0]
+		try:
+			transf = obj.Placement.toMatrix().multiply(transf) # cumulative transformation
+		except:
+			pass
+	
+	# show absolute coord (useful in console)
+	pt = subObj.Point
+	pt = transf.multiply(pt)
+	
+	# validation / draw a line from the origin to the selected vertex
+	#line = Part.makeLine(transf.multiply(pt), App.Vector(0,0,0))
+	#Part.show(line)
+	return pt
+
+pts = []
+for o, so in sel:
+	pt = objTransform(o, so)
+	print("pt = %s" % pt)
+	pts.append(pt)
+
+shape = None
+if len(pts) > 1:
+	l = (pts[0] - pts[1]).Length / 25.4
+	print("Edge length: %f inches" % (l))	
+	l = (pts[0] - pts[1]) / 25.4
+	print("Edge length: %0.3f, %0.3f, %0.3f inches" % (abs(l[0]), abs(l[1]), abs(l[2])))
+
+	l = Part.LineSegment(pts[0], pts[1])
+	shape = l.toShape()
+
+eobj = FreeCAD.ActiveDocument.getObject("__Measurement__")
+if eobj is None:
+	if shape is not None:
+		Part.show(shape, "__Measurement__")
+else:
+	if shape is not None:
+		eobj.Shape = shape
+	else:
+		FreeCAD.ActiveDocument.removeObject("__Measurement__")
+
+#o = os[0]
+#o = Gui.Selection.getSelectionEx()[0].SubObjects[0]
+#l = o.Length / 25.4
+#if l > 0:
+#	print("Edge length: %f inches" % l)
+#	try:
+#		os = o.SubShapes
+#		l = (os[0].Point - os[1].Point) / 25.4
+#		print("Edge length: %0.3f, %0.3f, %0.3f inches" % (abs(l[0]), abs(l[1]), abs(l[2])))	
+#	except: pass
+#	try:
+#		print("Radius: %f inches" % (o.Curve.Radius / 25.4))
+#	except:
+#		pass
+#if len(os) > 1:
+#	try:
+#		l = (os[0].Point - os[1].Point).Length / 25.4
+#		print("Edge length: %f inches" % (l))	
+#		l = (os[0].Point - os[1].Point) / 25.4
+#		print("Edge length: %0.3f, %0.3f, %0.3f inches" % (abs(l[0]), abs(l[1]), abs(l[2])))	
+#	except:
+#		pass
+#	try:
+#		l = (os[0].CenterOfMass - os[1].CenterOfMass).Length / 25.4
+#		print("Center of Mass distance: %f inches" % (l))	
+#		l = (os[0].CenterOfMass - os[1].CenterOfMass) / 25.4
+#		print("Center of Mass distance: %0.3f, %0.3f, %0.3f" % (abs(l[0]), abs(l[1]), abs(l[2])))	
+#	except:
+#		pass
