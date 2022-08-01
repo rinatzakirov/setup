@@ -22,7 +22,7 @@ def run():
 		screen_height = geom.height
 
 		origin = win.get_root_origin()
-		#print "orig: %d %d" % (origin[0], origin[1])
+		#print("orig: %d %d" % (origin[0], origin[1]))
 		geom = list(win.get_geometry())
 		geom[0] += origin[0]
 		geom[1] += origin[1]
@@ -73,6 +73,6 @@ def run():
 while True:
 	try:
 		run()
-	except:
-		pass
+	except Exception as e:
+		print(e)
 	time.sleep(1.0)
