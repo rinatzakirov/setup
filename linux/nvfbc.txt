@@ -1,0 +1,14 @@
+sudo apt install -y git libgl-dev libobs-dev libsimde-dev meson ninja-build obs-studio
+
+#install fbc patch
+git clone https://github.com/keylase/nvidia-patch.git
+sudo ./patch-fbc.sh
+sudo ./patch.sh
+
+#install nvfbc plugin
+git clone https://gitlab.com/fzwoch/obs-nvfbc.git
+cd
+meson build
+ninja -C build
+mkdir -p -- ~/.config/obs-studio ~/.config/obs-studio/plugins ~/.config/obs-studio/plugins/nvfbc ~/.config/obs-studio/plugins/nvfbc/bin ~/.config/obs-studio/plugins/nvfbc/bin/64bit
+cp ./build/nvfbc.so ~/.config/obs-studio/plugins/nvfbc/bin/64bit/nvfbc.so
